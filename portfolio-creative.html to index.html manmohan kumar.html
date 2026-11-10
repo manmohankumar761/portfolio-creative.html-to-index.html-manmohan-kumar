@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Manmohan Kumar — 2D/3D Image Artist</title>
+<style>
+:root{--bg:#f6f4fb;--fg:#17141f;--muted:#6a647a;--card:#fff;--line:#e3dff0;--a1:#7c3aed;--a2:#f97316;--a3:#06b6d4;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0b0a12;--fg:#f1eefb;--muted:#9a94ad;--card:#15131f;--line:#262236;--a1:#a78bfa;--a2:#fb923c;--a3:#22d3ee;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#0b0a12;--fg:#f1eefb;--muted:#9a94ad;--card:#15131f;--line:#262236;--a1:#a78bfa;--a2:#fb923c;--a3:#22d3ee;color-scheme:dark}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:var(--bg);color:var(--fg);font:16px/1.6 system-ui,-apple-system,"Segoe UI",sans-serif}
+.w{max-width:1000px;margin:0 auto;padding:0 20px}
+nav{display:flex;justify-content:space-between;align-items:center;padding:20px 0;font-size:14px}
+nav b{font-weight:700;letter-spacing:.02em}
+nav div{display:flex;gap:18px;flex-wrap:wrap}
+nav a{color:var(--muted);text-decoration:none}nav a:hover{color:var(--a1)}
+.hero{position:relative;padding:56px 0 40px}
+.hero:before{content:"";position:absolute;inset:-40px -20px auto -20px;height:360px;background:radial-gradient(60% 60% at 20% 30%,color-mix(in srgb,var(--a1) 35%,transparent),transparent),radial-gradient(50% 60% at 85% 20%,color-mix(in srgb,var(--a2) 30%,transparent),transparent);filter:blur(30px);z-index:-1}
+.kicker{font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:var(--a2);font-weight:600}
+h1{font-size:clamp(2.4rem,8vw,4.6rem);line-height:1.04;margin:14px 0;letter-spacing:-.03em}
+h1 span{background:linear-gradient(90deg,var(--a1),var(--a2));-webkit-background-clip:text;background-clip:text;color:transparent}
+.lead{font-size:1.15rem;color:var(--muted);max-width:40em}
+.btns{display:flex;gap:12px;margin-top:26px;flex-wrap:wrap}
+.btn{font-weight:600;font-size:14px;padding:12px 20px;border-radius:10px;border:1px solid var(--line);color:var(--fg);text-decoration:none;background:var(--card)}
+.btn.p{background:linear-gradient(90deg,var(--a1),var(--a2));border:0;color:#fff}
+h2{font-size:clamp(1.5rem,4vw,2rem);letter-spacing:-.02em;margin:64px 0 8px}
+.sub{color:var(--muted);margin:0 0 24px}
+.grid{display:grid;gap:14px}
+.g3{grid-template-columns:repeat(auto-fit,minmax(220px,1fr))}
+.g4{grid-template-columns:repeat(auto-fit,minmax(200px,1fr))}
+.card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:18px}
+.card h3{margin:0 0 6px;font-size:1.02rem}
+.card p{margin:0;color:var(--muted);font-size:.92rem}
+.dot{width:10px;height:10px;border-radius:50%;display:inline-block;margin-right:8px}
+.tool{display:flex;gap:12px;align-items:center}
+.ic{flex:none;width:44px;height:44px;border-radius:12px;display:grid;place-items:center;font-weight:800;font-size:15px;color:#fff}
+.tool small{display:block;color:var(--muted);font-size:12px}
+.work{position:relative;aspect-ratio:4/3;border-radius:16px;overflow:hidden;border:1px solid var(--line);display:flex;align-items:flex-end;padding:16px;color:#fff}
+.work div{position:relative;z-index:1}
+.work h3{margin:0;font-size:1.05rem}
+.work span{font-size:12px;opacity:.9}
+.work:after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(0,0,0,.6),transparent 60%)}
+.tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px}
+.tags i{font-style:normal;font-size:12px;padding:3px 10px;border-radius:99px;background:color-mix(in srgb,var(--a1) 14%,transparent);color:var(--a1)}
+.card ul{margin:8px 0 0;padding-left:18px;color:var(--muted);font-size:.92rem}.card li{margin-bottom:5px}.when{font-size:13px;color:var(--a2);font-weight:600;margin-bottom:6px}.stack{display:grid;gap:14px}.about{font-size:1.05rem;color:var(--muted);max-width:46em;margin:0 0 14px}
+.steps{counter-reset:s}
+.steps .card:before{counter-increment:s;content:"0" counter(s);font-weight:800;font-size:1.6rem;background:linear-gradient(90deg,var(--a1),var(--a2));-webkit-background-clip:text;background-clip:text;color:transparent;display:block;margin-bottom:6px}
+footer{margin:72px 0 40px;padding:28px;border-radius:20px;background:linear-gradient(120deg,var(--a1),var(--a2));color:#fff}
+footer h2{margin:0 0 6px;color:#fff}footer p{margin:0 0 4px}
+</style>
+</head>
+<body>
+<div class="w">
+<nav><b>Manmohan Kumar</b><div><a href="#about">About</a><a href="#services">Services</a><a href="#tools">Tools</a><a href="#work">Work</a><a href="#experience">Experience</a><a href="#projects">Projects</a><a href="#skills">Skills</a><a href="#education">Education</a><a href="#contact">Contact</a></div></nav>
+
+<header class="hero">
+<div class="kicker">2D · 3D · Image editing · Software &amp; AI</div>
+<h1>Images edited and rebuilt <span>exactly to the brief.</span></h1>
+<p class="lead">I edit, annotate and recreate images from written briefs — retouching, compositing, cleanup, background edits, textures and materials — keeping style, lighting and detail consistent.</p>
+<div class="btns"><a class="btn p" href="#work">See my work</a><a class="btn" href="#tools">Tools I use</a></div>
+</header>
+
+<section id="about">
+<h2>About</h2>
+<p class="about">Senior Software Engineer and AI Evaluation Specialist with experience building scalable full-stack applications, AI systems and distributed backend services. Strong in Python, JavaScript, TypeScript, Swift, SQL databases, Redis, REST APIs and cloud-native architectures, with a background in optimizing data pipelines and evaluating AI model outputs.</p>
+<p class="about">I also collaborate on AI evaluation workflows, structured annotation projects, technical research and model validation, work that calls for analytical thinking and precise written communication.</p>
+</section>
+
+<section id="services">
+<h2>What I do</h2>
+<p class="sub">Edit, annotate and recreate images to written briefs.</p>
+<div class="grid g3">
+<div class="card"><h3><span class="dot" style="background:var(--a1)"></span>Retouching</h3><p>Skin, product and surface retouching that stays natural and true to the source.</p></div>
+<div class="card"><h3><span class="dot" style="background:var(--a2)"></span>Compositing</h3><p>Matching light, shadow, colour and perspective so merged elements look native.</p></div>
+<div class="card"><h3><span class="dot" style="background:var(--a3)"></span>Cleanup</h3><p>Object removal, dust and artifact fixes, and edge cleanup with no visible traces.</p></div>
+<div class="card"><h3><span class="dot" style="background:var(--a1)"></span>Background edits</h3><p>Replacements and extensions that respect the subject’s lighting and depth.</p></div>
+<div class="card"><h3><span class="dot" style="background:var(--a2)"></span>Textures &amp; materials</h3><p>PBR materials and textures for 3D assets, from stylised to photoreal.</p></div>
+<div class="card"><h3><span class="dot" style="background:var(--a3)"></span>Annotation</h3><p>Clear, structured markup on images following written guidelines.</p></div>
+</div>
+</section>
+
+<section id="tools">
+<h2>Tools I use regularly</h2>
+<p class="sub">2D, 3D and motion across the full pipeline.</p>
+<div class="grid g4">
+<div class="card tool"><div class="ic" style="background:#2563eb">Ps</div><div><b>Photoshop</b><small>Retouching · compositing</small></div></div>
+<div class="card tool"><div class="ic" style="background:#7c3aed">Ae</div><div><b>After Effects</b><small>Motion · compositing</small></div></div>
+<div class="card tool"><div class="ic" style="background:#0891b2">3ds</div><div><b>3ds Max</b><small>Modelling · rendering</small></div></div>
+<div class="card tool"><div class="ic" style="background:#1d4ed8">C4D</div><div><b>Cinema 4D</b><small>Motion graphics · 3D</small></div></div>
+<div class="card tool"><div class="ic" style="background:#ea580c">Bl</div><div><b>Blender</b><small>Modelling · shading</small></div></div>
+<div class="card tool"><div class="ic" style="background:#0d9488">Ma</div><div><b>Maya</b><small>Modelling · animation</small></div></div>
+<div class="card tool"><div class="ic" style="background:#dc2626">Sp</div><div><b>Substance Painter</b><small>Textures · materials</small></div></div>
+<div class="card tool"><div class="ic" style="background:#d97706">Ai</div><div><b>Illustrator</b><small>Vector · annotation</small></div></div>
+</div>
+</section>
+
+<section id="work">
+<h2>Selected work</h2>
+<p class="sub">2D and 3D projects, each listed with its tools.</p>
+<div class="grid g3">
+<div><div class="work" style="background:linear-gradient(135deg,#7c3aed,#06b6d4)"><div><h3>Portrait retouch</h3><span>2D · Retouching</span></div></div><div class="tags"><i>Photoshop</i></div></div>
+<div><div class="work" style="background:linear-gradient(135deg,#f97316,#db2777)"><div><h3>Product composite</h3><span>2D · Compositing</span></div></div><div class="tags"><i>Photoshop</i><i>Illustrator</i></div></div>
+<div><div class="work" style="background:linear-gradient(135deg,#0ea5e9,#22c55e)"><div><h3>Background replacement</h3><span>2D · Background edit</span></div></div><div class="tags"><i>Photoshop</i></div></div>
+<div><div class="work" style="background:linear-gradient(135deg,#ea580c,#7c3aed)"><div><h3>Hard-surface asset</h3><span>3D · Modelling</span></div></div><div class="tags"><i>Blender</i><i>Substance Painter</i></div></div>
+<div><div class="work" style="background:linear-gradient(135deg,#0d9488,#2563eb)"><div><h3>Material study</h3><span>3D · Textures</span></div></div><div class="tags"><i>Substance Painter</i><i>Cinema 4D</i></div></div>
+<div><div class="work" style="background:linear-gradient(135deg,#db2777,#f59e0b)"><div><h3>Motion composite</h3><span>2D/3D · Motion</span></div></div><div class="tags"><i>After Effects</i><i>3ds Max</i></div></div>
+</div>
+</section>
+
+<section id="experience">
+<h2>Professional experience</h2>
+<p class="sub">Software, AI and evaluation engineering.</p>
+<div class="stack">
+<div class="card"><div class="when">2026 – Present</div><h3>Machine Learning Engineer — Handshake AI</h3><ul><li>Developed and deployed NLP and machine learning applications in production environments.</li><li>Built APIs and scalable services for model serving and real-time processing.</li><li>Improved reliability and performance of AI pipelines through testing and optimization.</li><li>Worked with structured datasets, analytics workflows and cloud-based deployment systems.</li></ul></div>
+<div class="card"><div class="when">2025 – Present</div><h3>Senior Full-Stack / AI Engineer — Nexus AI</h3><ul><li>Designed and deployed scalable backend systems supporting AI model evaluation workflows and distributed processing.</li><li>Built RESTful APIs and full-stack applications using Python, FastAPI, Next.js, PostgreSQL and Redis.</li><li>Improved API response performance and backend throughput for real-time AI systems.</li><li>Evaluated AI model outputs and contributed to prompt optimization and model reliability initiatives.</li><li>Collaborated on data-intensive systems requiring analytical review, debugging and structured feedback.</li></ul></div>
+<div class="card"><div class="when">2024 – Present</div><h3>Full-Stack Software Engineer — Outlier AI</h3><ul><li>Developed internal dashboards and evaluation tools for AI model assessment workflows.</li><li>Built backend services and data pipelines for grading and annotation systems.</li><li>Implemented caching and optimized data processing using SQL databases and asynchronous workflows.</li><li>Worked on software evaluation tasks involving technical reasoning, debugging and structured analysis.</li><li>Contributed to AI training and validation projects requiring high attention to detail and technical accuracy.</li></ul></div>
+<div class="card"><div class="when">2023 – 2024</div><h3>Software Engineer — Scale AI</h3><ul><li>Engineered backend services and processing pipelines for large-scale AI data systems.</li><li>Optimized workflows for distributed processing and improved system efficiency.</li><li>Supported AI model training infrastructure and software evaluation initiatives.</li><li>Collaborated with technical teams on debugging, system optimization and infrastructure reliability.</li></ul></div>
+</div>
+</section>
+
+<section id="projects">
+<h2>Projects</h2>
+<p class="sub">Full-stack, AI, mobile and research projects.</p>
+<div class="grid g3">
+<div class="card"><h3>Full-Stack SaaS Platform</h3><ul><li>Production-ready platform built with Next.js, Node.js, PostgreSQL, Redis and Tailwind CSS.</li><li>Designed authentication systems, optimized database queries and built responsive UI workflows.</li><li>Architected scalable frontend/backend integration with caching and real-time data handling.</li></ul><div class="tags"><i>Next.js</i><i>Node.js</i><i>PostgreSQL</i><i>Redis</i><i>Tailwind</i></div></div>
+<div class="card"><h3>AI Evaluation &amp; Optimization Platform</h3><ul><li>Tools for evaluating AI model responses and improving output quality.</li><li>Structured workflows for annotation, validation and prompt evaluation.</li><li>Improved reliability and consistency of model-generated outputs.</li></ul><div class="tags"><i>LLM evaluation</i><i>Annotation</i><i>Prompting</i></div></div>
+<div class="card"><h3>iOS Productivity Application</h3><ul><li>Built with Swift, SwiftUI and modern iOS architecture patterns.</li><li>Asynchronous data handling and responsive mobile UI components.</li><li>Optimized performance and user experience across mobile workflows.</li></ul><div class="tags"><i>Swift</i><i>SwiftUI</i><i>iOS</i></div></div>
+<div class="card"><h3>ArXiv Research Paper Assistant</h3><ul><li>Streamlit-based RAG pipeline that fetches ArXiv papers, stores metadata in a Neo4j graph database and answers queries with FAISS and Meta Llama 3 8B (Groq API).</li><li>Automated text extraction and ranking with Sentence-BERT for efficient retrieval of relevant papers.</li><li>Streamlined academic research with NLP-powered querying and future research direction suggestions.</li></ul><div class="tags"><i>Streamlit</i><i>Neo4j</i><i>FAISS</i><i>Llama 3</i><i>Sentence-BERT</i></div></div>
+</div>
+</section>
+
+<section id="skills">
+<h2>Core skills</h2>
+<p class="sub">Engineering, AI and mobile skills.</p>
+<div class="grid g3">
+<div class="card"><h3>Programming languages</h3><div class="tags"><i>Python</i><i>JavaScript</i><i>TypeScript</i><i>Swift</i><i>SQL</i></div></div>
+<div class="card"><h3>Backend &amp; APIs</h3><div class="tags"><i>Node.js</i><i>FastAPI</i><i>Flask</i><i>REST APIs</i><i>Microservices</i><i>API design</i></div></div>
+<div class="card"><h3>Frontend development</h3><div class="tags"><i>Next.js</i><i>React</i><i>Tailwind CSS</i><i>HTML5</i><i>CSS3</i><i>Redux</i></div></div>
+<div class="card"><h3>Databases &amp; caching</h3><div class="tags"><i>PostgreSQL</i><i>MySQL</i><i>MongoDB</i><i>Redis</i><i>Database optimization</i><i>Schema design</i></div></div>
+<div class="card"><h3>Cloud &amp; DevOps</h3><div class="tags"><i>AWS</i><i>GCP</i><i>Docker</i><i>CI/CD</i><i>GitHub Actions</i><i>Git</i></div></div>
+<div class="card"><h3>AI &amp; machine learning</h3><div class="tags"><i>LLM evaluation</i><i>Prompt engineering</i><i>NLP</i><i>AI model optimization</i><i>AI data annotation</i><i>Human-in-the-loop evaluation</i></div></div>
+<div class="card"><h3>Mobile development</h3><div class="tags"><i>Swift</i><i>UIKit</i><i>SwiftUI</i><i>iOS SDK</i><i>Async/Await</i><i>MVVM</i></div></div>
+<div class="card"><h3>Software engineering</h3><div class="tags"><i>Data structures &amp; algorithms</i><i>System design</i><i>Distributed systems</i><i>Testing</i><i>Debugging</i><i>Performance optimization</i></div></div>
+<div class="card"><h3>Enterprise &amp; legacy systems</h3><div class="tags"><i>Structured programming</i><i>System migration concepts</i><i>Enterprise application maintenance</i><i>Batch processing concepts</i></div></div>
+</div>
+</section>
+
+<section id="education">
+<h2>Education &amp; certifications</h2>
+<p class="sub">National Institute of Technology (NIT) Patna.</p>
+<div class="grid g3">
+<div class="card"><div class="when">2023 – 2026</div><h3>PhD, Software Engineering</h3><ul><li>Research: scalable AI systems, distributed architectures and ML optimization.</li><li>Dissertation: design and optimization of large-scale AI-driven systems.</li></ul></div>
+<div class="card"><div class="when">2020 – 2023</div><h3>M.Tech, Software Engineering</h3><ul><li>Specialization: machine learning, cloud computing, system design.</li></ul></div>
+<div class="card"><div class="when">2016 – 2019</div><h3>B.Tech, Software Engineering</h3><ul><li>Focus: algorithms, data structures, full-stack development.</li></ul></div>
+</div>
+<div class="tags" style="margin-top:18px"><i>Stanford Machine Learning</i><i>IBM Data Analytics</i><i>Google Cloud AI</i><i>AWS Machine Learning Foundations</i></div>
+</section>
+
+<section id="process">
+<h2>How I work</h2>
+<p class="sub">Written brief in, consistent image out.</p>
+<div class="grid g3 steps">
+<div class="card"><h3>Read the brief</h3><p>I break it into exact requirements and check the reference for style, lighting and detail.</p></div>
+<div class="card"><h3>Edit or rebuild</h3><p>Non-destructive layers and clean 3D setups so every change can be revised.</p></div>
+<div class="card"><h3>Consistency check</h3><p>I compare light direction, colour, texture and detail against the original before delivery.</p></div>
+</div>
+</section>
+
+<footer id="contact">
+<h2>Let’s work together</h2>
+<p>Add your email, LinkedIn or Behance link here.</p>
+</footer>
+</div>
+</body>
+</html>
